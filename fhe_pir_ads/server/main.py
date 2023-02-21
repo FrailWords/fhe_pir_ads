@@ -3,12 +3,12 @@ from concurrent import futures
 import grpc
 
 import pir_pb2_grpc as pb2_grpc
-from server.pir.server import Server
+from fhe_pir_ads.server.pir.server import Server
 
-from server.service import PirService
+from fhe_pir_ads.server.service import PirService
 
 
-def serve():
+def main():
     size = 10
     pir_server = Server(size)
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=5),compression=grpc.Compression.Gzip)
@@ -19,4 +19,4 @@ def serve():
 
 
 if __name__ == "__main__":
-    serve()
+    main()

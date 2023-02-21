@@ -5,8 +5,8 @@ import pir_pb2_grpc as pb2_grpc
 import tenseal as ts
 from google.protobuf import empty_pb2
 
-from client.pir.client import Client
-from ad_catalog.index_tree import IndexTree
+from fhe_pir_ads.client.pir.client import Client
+from fhe_pir_ads.ad_catalog.index_tree import IndexTree
 
 
 class PirClient(object):
@@ -54,7 +54,7 @@ class PirClient(object):
         return IndexTree().de_serialize(idx_tree)
 
 
-if __name__ == '__main__':
+def main():
     client = PirClient()
     client.push_context()
     index_tree = client.get_index_tree()
@@ -62,3 +62,7 @@ if __name__ == '__main__':
     response = client.get_response()
     result = ts.CKKSVector.load(client.get_context(), response.response)
     print(f'{result.decrypt()}')
+
+
+if __name__ == '__main__':
+    main()

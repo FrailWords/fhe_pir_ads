@@ -3,8 +3,8 @@ from google.protobuf import empty_pb2
 
 import pir_pb2 as pb2
 import pir_pb2_grpc as pb2_grpc
-from ad_catalog.index_tree import IndexTree
-from server.pir.server import Server
+from fhe_pir_ads.ad_catalog.index_tree import IndexTree
+from fhe_pir_ads.server.pir.server import Server
 
 
 class PirService(pb2_grpc.PirServicer):

@@ -17,3 +17,7 @@ numpy = "^1.24.2"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+client = "fhe_pir_ads.client.main:main"
+server = "fhe_pir_ads.server.main:main"
