@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "fhe-pir-ads"
+version = "0.1.0"
+description = ""
+authors = ["Sriram Viswanathan <sriramvi@andrew.cmu.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+tenseal = "0.3.6"
+grpcio = "^1.51.1"
+grpcio-tools = "^1.51.1"
+binary-trie = "^0.0.9"
+numpy = "^1.24.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
