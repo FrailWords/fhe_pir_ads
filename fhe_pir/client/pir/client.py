@@ -2,7 +2,7 @@ import tenseal as ts
 import numpy as np
 
 
-class ClientRequest():
+class ClientRequest:
     ctx: ts.Context
     row: ts.CKKSVector
     col: ts.CKKSVector
@@ -38,7 +38,3 @@ class Client:
     def make_and_dec_req(self, size, row, col):
         request = ClientRequest(ctx= self.context, row = self.req_row(row, size), col = self.req_col(col, size))
         return request
-
-    def make_and_dec_row_req(self, server, row):
-        out = server.get_data_row(self.req_row(row, server.size))
-        return out.decrypt()

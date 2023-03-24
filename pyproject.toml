@@ -7,17 +7,16 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-tenseal = "0.3.6"
 grpcio = "^1.51.1"
 grpcio-tools = "^1.51.1"
 binary-trie = "^0.0.9"
 numpy = "^1.24.2"
-
+tenseal = { git = "https://github.com/OpenMined/TenSEAL.git", branch = "main" }
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-client = "fhe_pir_ads.client.main:main"
-server = "fhe_pir_ads.server.main:main"
+client = "fhe_pir.client.main:main"
+server = "fhe_pir.server.main:main"

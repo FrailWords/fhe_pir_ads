@@ -3,9 +3,9 @@ from concurrent import futures
 import grpc
 
 import pir_pb2_grpc as pb2_grpc
-from fhe_pir_ads.server.pir.server import Server
+from fhe_pir.server.pir.server import Server
 
-from fhe_pir_ads.server.service import PirService
+from fhe_pir.server.service import PirService
 
 
 def main():

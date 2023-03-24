@@ -5,8 +5,8 @@ import pir_pb2_grpc as pb2_grpc
 import tenseal as ts
 from google.protobuf import empty_pb2
 
-from fhe_pir_ads.client.pir.client import Client
-from fhe_pir_ads.ad_catalog.index_tree import IndexTree
+from fhe_pir.client.pir.client import Client
+from fhe_pir.ad_catalog.index_tree import IndexTree
 
 
 class PirClient(object):
