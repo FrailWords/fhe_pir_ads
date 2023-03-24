@@ -1,7 +1,7 @@
 import grpc
 
-import pir_pb2 as pb2
-import pir_pb2_grpc as pb2_grpc
+from fhe_pir import fhe_pb2 as pb2
+from fhe_pir import fhe_pb2_grpc as pb2_grpc
 import tenseal as ts
 from google.protobuf import empty_pb2
 

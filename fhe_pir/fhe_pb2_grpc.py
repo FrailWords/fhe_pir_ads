@@ -2,8 +2,8 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+import fhe_pir.fhe_pb2 as fhe__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
-import pir_pb2 as pir__pb2
 
 
 class PirStub(object):
@@ -17,18 +17,18 @@ class PirStub(object):
         """
         self.SaveContext = channel.stream_unary(
                 '/pir.Pir/SaveContext',
-                request_serializer=pir__pb2.PirContext.SerializeToString,
+                request_serializer=fhe__pb2.PirContext.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.GetResponse = channel.unary_unary(
                 '/pir.Pir/GetResponse',
-                request_serializer=pir__pb2.PirRequest.SerializeToString,
-                response_deserializer=pir__pb2.PirResponse.FromString,
+                request_serializer=fhe__pb2.PirRequest.SerializeToString,
+                response_deserializer=fhe__pb2.PirResponse.FromString,
                 )
         self.GetIndexTree = channel.unary_unary(
                 '/pir.Pir/GetIndexTree',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=pir__pb2.IndexTreeResponse.FromString,
+                response_deserializer=fhe__pb2.IndexTreeResponse.FromString,
                 )
 
 
@@ -58,18 +58,18 @@ def add_PirServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'SaveContext': grpc.stream_unary_rpc_method_handler(
                     servicer.SaveContext,
-                    request_deserializer=pir__pb2.PirContext.FromString,
+                    request_deserializer=fhe__pb2.PirContext.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'GetResponse': grpc.unary_unary_rpc_method_handler(
                     servicer.GetResponse,
-                    request_deserializer=pir__pb2.PirRequest.FromString,
-                    response_serializer=pir__pb2.PirResponse.SerializeToString,
+                    request_deserializer=fhe__pb2.PirRequest.FromString,
+                    response_serializer=fhe__pb2.PirResponse.SerializeToString,
             ),
             'GetIndexTree': grpc.unary_unary_rpc_method_handler(
                     servicer.GetIndexTree,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=pir__pb2.IndexTreeResponse.SerializeToString,
+                    response_serializer=fhe__pb2.IndexTreeResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -93,7 +93,7 @@ class Pir(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.stream_unary(request_iterator, target, '/pir.Pir/SaveContext',
-            pir__pb2.PirContext.SerializeToString,
+            fhe__pb2.PirContext.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -110,8 +110,8 @@ class Pir(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/pir.Pir/GetResponse',
-            pir__pb2.PirRequest.SerializeToString,
-            pir__pb2.PirResponse.FromString,
+            fhe__pb2.PirRequest.SerializeToString,
+            fhe__pb2.PirResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -128,6 +128,6 @@ class Pir(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/pir.Pir/GetIndexTree',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            pir__pb2.IndexTreeResponse.FromString,
+            fhe__pb2.IndexTreeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

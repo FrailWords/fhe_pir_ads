@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package pir;
+
+service Pir{
+  rpc GetResponse(PirRequest) returns (PirResponse) {}
+  rpc GetIndexTree(google.protobuf.Empty) returns (IndexTreeResponse) {}
+}
+
+message IndexTreeResponse{
+  string idx_tree = 1;
+}
+
+message PirRequest{
+  bytes request = 1;
+}
+
+message PirResponse{
+  bytes response = 1;
+}

@@ -4,6 +4,10 @@ version = "0.1.0"
 description = ""
 authors = ["Sriram Viswanathan <sriramvi@andrew.cmu.edu>"]
 readme = "README.md"
+packages = [
+    { include = "fhe_pir" },
+    { include = "matrix_pir" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -12,6 +16,7 @@ grpcio-tools = "^1.51.1"
 binary-trie = "^0.0.9"
 numpy = "^1.24.2"
 tenseal = { git = "https://github.com/OpenMined/TenSEAL.git", branch = "main" }
+pylint = "^2.17.1"
 
 [build-system]
 requires = ["poetry-core"]
